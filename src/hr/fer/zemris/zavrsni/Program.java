@@ -11,7 +11,7 @@ import com.oracle.xmlns.internal.webservices.jaxws_databinding.ExistingAnnotatio
 
 public class Program {
 	
-	static Trie<MyDouble> trie;  
+	static Trie trie;  
 	protected static void run(List<Dot> dots, int numOfQuerys, int numMovesBetweenQuerys, int numOfThreads,int treeType)
 	{
 		try
@@ -39,10 +39,10 @@ public class Program {
 	{
 		switch (treeType) {
 		case 0:
-			trie = new SimpleTrie<MyDouble>();
+			trie = new SimpleTrie();
 			break;
 		case 1:
-			trie = new CompressTrie<MyDouble>();
+			trie = new CompressTrie();
 			break;
 		default:
 			throw new Exception("Wrong tree type");

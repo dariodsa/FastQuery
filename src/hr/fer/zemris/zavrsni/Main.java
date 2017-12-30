@@ -2,10 +2,12 @@ package hr.fer.zemris.zavrsni;
 
 import hr.fer.zemris.zavrsni.geoobjects.*;
 
+import hr.fer.zemris.zavrsni.structures.SimpleTrie;
+import hr.fer.zemris.zavrsni.structures.Trie;
+
 import java.io.IOException;
 import java.nio.file.Files;
-import java.util.List;
-import java.util.ArrayList;
+import java.util.*;
 import java.nio.file.Paths;
 
 public class Main {
@@ -13,6 +15,27 @@ public class Main {
 	public static void main(String[] args) {
 		
 		// text file with location
+		SimpleTrie T = new SimpleTrie();
+		Random R = new Random();
+		for(int i=0;i<1000000;++i)
+		{
+			Double rand = R.nextDouble()*10;
+			rand = Math.round(rand * 10000.0)/10000.0;
+			T.add(rand.toString());
+		}
+		for(int i=0;i<1000000;++i)
+		{
+			double x = R.nextDouble()*10;
+			double y = R.nextDouble()*10;
+			Double min = Math.min(x,y);
+			Double max = Math.max(x,y);
+			List<String> L = T.getFromInterval(min.toString(), max.toString());
+			//System.out.println(L.size());
+			if(i%1000 == 0)
+				System.out.println(i);
+		}
+		
+		System.exit(0);
 		String filePath = args[0];
 		try
 		{
