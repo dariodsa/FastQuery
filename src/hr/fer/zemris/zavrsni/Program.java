@@ -24,9 +24,9 @@ public class Program {
 		}
 		for(int j=0;j<numOfThreads;++j)
 		{
-			Radilica R = new Radilica();
+			/*Radilica R = new Radilica();
 			Thread dretva = new Thread(R);
-			dretva.run();
+			dretva.run();*/
 			
 		}
 		
@@ -39,7 +39,7 @@ public class Program {
 	{
 		switch (treeType) {
 		case 0:
-			trie = new SimpleTrie();
+			//trie = new Trie();
 			break;
 		case 1:
 			trie = new CompressTrie();
